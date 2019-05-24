@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.osf.sp.mapper.BoardInfoMapper">
+	<resultMap type="com.osf.sp.vo.BoardInfoVO" id="birm">
+		<result column="bi_type" property="biType" />
+	</resultMap>
+	<sql id="bi_columns">
+		bi_num, bi_type, bi_title, bi_content, bi_writer, bi_cnt,
+		bi_credat, bi_cretim, bi_like
+	</sql>
+	<select id="selectBoardInfo" resultMap="birm">
+		select
+		<include refid="bi_columns" />
+		from board_info
+		order by bi_num
+	</select>
+	<insert id="insertBoardInfo">
+		insert into board_info(bi_num, bi_title, bi_content, bi_writer,bi_credat,bi_cretim)
+		values(seq_bi_num.nextval,#{biTitle}, #{biContent}, #{biWriter}, to_char(sysdate,'yyyymmdd'), to_char(sysdate,'hh24miss'))
+	</insert>
+		<select id="selectBoardInfoByPk" resultMap="birm">
+		select
+		<include refid="bi_columns" />
+		from board_info
+		order by bi_num 
+		where bi_num = #{biNum} 
+	</select>
+</mapper>

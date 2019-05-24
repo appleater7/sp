@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="main" img="home.gif" imgdis="home_dis.gif"></item>
+	
+	<item id="sep_top_1" type="separator"/>
+	
+	<item id="admin_manager" text="관리자관리"></item>
+	
+	<item id="sep_top_2" type="separator"/>
+	
+	<item id="setting" text="환경설정"  img="arrow.gif">
+		<item id="system_info" text="시스템정보"/>
+		<item id="category_set" text="카테고리설정"/>
+		<item id="brand_set" text="브랜드설정"/>
+		<item id="banner_manager" text="배너관리"/>
+	</item>
+	
+	<item id="sep_top_3" type="separator"/>
+	
+	<item id="user_manager" text="일반회원관리"/>
+	
+	<item id="sep_top_4" type="separator"/>
+	
+	<item id="shop_manager" text="상점관리" img="arrow.gif">
+		<item id="shop_user_manager" text="샵(회원)관리"/>
+		<item id="shop_store_manager" text="샵(상점)관리"/>
+		<item id="counsel_manager" text="상점 상담 관리"/>
+		<item id="review_manager" text="리뷰 관리"/>
+	</item>
+	
+	<item id="sep_top_5" type="separator"/>
+	
+	<item id="goods_manager" text="상품관리"/>	
+	
+	<item id="sep_top_6" type="separator"/>
+	
+	<item id="order_manager" text="주문관리"/>
+	
+	<item id="sep_top_7" type="separator"/>
+	
+	<item id="rese_manager" text="예약관리"/>
+	
+	<item id="sep_top_8" type="separator"/>
+	
+	<item id="sel_manager" text="판매관리" img="arrow.gif">
+		<item id="exp_sel_manager" text="배송상품판매관리"/>
+		<item id="tic_sel_manager" text="티켓상품판매관리"/>
+	</item>
+	<item id="sep_top_9" type="separator"/>
+	
+	<item id="board_manager" text="게시판관리" >
+	</item>
+	
+	<item id="sep_top_10" type="separator"/>
+	
+	<item id="coupon_manager" text="쿠폰관리"/>
+	
+	<item id="sep_top_11" type="separator"/>
+			
+	<item id="logout" text="로그아웃"/>
+	
+</menu>

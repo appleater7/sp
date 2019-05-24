@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.osf.sp.mapper.SalGradeMapper">
+	<select id="selectSalGradeList" resultType="map">
+		select * from
+		salgrade
+	</select>
+	<select id="selectSalGrade" resultType="map">
+		select * from salgrade where grade = #{grade}
+	</select>
+	<update id="updateSalGrade" parameterType="map">
+		update salgrade
+		<set>
+			<if test="losal!=null">
+				losal=#{losal},
+			</if>
+			<if test="losal!=null">
+				hisal=#{hisal},
+			</if>
+		</set> 
+		where grade=#{grade}
+	</update>
+	<delete id="deleteSalGrade" parameterType="int">
+		delete from salgrade where grade = #{grade}
+	</delete>
+	<insert id="insertSalGrade" parameterType="map">
+		insert into salgrade(grade, losal, hisal) values(#{grade},#{losal},#{hisal})
+	</insert>
+</mapper>     
