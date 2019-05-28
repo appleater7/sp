@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,8 +38,21 @@ public class BoardInfoController {
 	
 	@CrossOrigin(origins="http://localhost")
 	@GetMapping("/boardinfo")
-	public @ResponseBody BoardInfoVO selectBoardInfoByPk(@RequestBody BoardInfoVO bi){
+	public @ResponseBody BoardInfoVO selectBoardInfoByPk(BoardInfoVO bi){
 		log.info("bi=>{}",bi);
 		return bis.selectBoardInfoByPk(bi); 
+	}
+	
+	@CrossOrigin(origins="*")
+	@PostMapping("/boardinfof")
+	public @ResponseBody int doAdd(BoardInfoVO bi){
+		log.info("bi=>{}",bi);
+		return bis.insertBoardInfo(bi);
+	}
+	
+	@CrossOrigin(origins="*")
+	@PostMapping("/boardinfo/{biNum}")
+	public @ResponseBody int deleteSample(@PathVariable("biNum") Integer abc){
+		return 0;
 	}
 }
