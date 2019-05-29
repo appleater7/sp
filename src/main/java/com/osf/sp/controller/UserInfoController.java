@@ -55,6 +55,6 @@ public class UserInfoController {
 	@PostMapping("/login")
 	public @ResponseBody UserInfoVO doLogin(@RequestBody UserInfoVO ui) {
 		log.info("params:{}",ui);
-		return us.login(ui);
+		return us.loginById(ui);
 	}
 }

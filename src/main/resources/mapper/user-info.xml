@@ -19,4 +19,7 @@
 	<update id="updateUserInfo">
 		update user_info set ui_id=#{uiId}, ui_pwd = #{uiPwd}, ui_age = #{uiAge} where ui_no=#{uiNo}
 	</update>
+	<select id="loginById" resultType="ui">
+		select count(1) from user_info where ui_id = #{uiId} and ui_pwd = #{uiPwd}
+	</select>	
 </mapper>

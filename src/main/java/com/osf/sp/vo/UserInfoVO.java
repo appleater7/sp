@@ -12,4 +12,5 @@ public class UserInfoVO {
 	private String uiId;
 	private String uiPwd;
 	private Integer uiAge;
+	private String tokken;
 }

@@ -14,4 +14,5 @@ public interface UserInfoMapper {
 	List<UserInfoVO> selectUserInfo();
 	int deleteUserInfo(int uiNo);
 	int updateUserInfo(UserInfoVO ui);
+	Integer loginById(UserInfoVO ui);
 }

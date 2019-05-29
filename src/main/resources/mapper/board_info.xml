@@ -20,10 +20,11 @@
 		insert into board_info(bi_num, bi_title, bi_content, bi_writer,bi_credat,bi_cretim,bi_path)
 		values(seq_bi_num.nextval,#{biTitle}, #{biContent}, #{biWriter}, to_char(sysdate,'yyyymmdd'), to_char(sysdate,'hh24miss'),#{biPath})
 	</insert>
-		<select id="selectBoardInfoByPk" resultMap="birm">
+	<select id="selectBoardInfoByPk" resultMap="birm">
 		select
 		<include refid="bi_columns" />
 		from board_info
 		where bi_num = #{biNum}
 	</select>
+	
 </mapper>

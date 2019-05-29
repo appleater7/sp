@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.osf.sp.auth.MakeJWT;
 import com.osf.sp.mapper.UserInfoMapper;
 import com.osf.sp.service.UserInfoService;
 import com.osf.sp.vo.ParamVO;
@@ -16,6 +17,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Resource
 	private UserInfoMapper uim;
+	
+	@Resource
+	private MakeJWT jwt;
 	
 	@Override
 	public int insertUserInfo(UserInfoVO ui) {
@@ -48,14 +52,17 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public UserInfoVO login(UserInfoVO ui) {
-//		UserInfoVO selectUi = uim.selectUserInfoById(ui);
-//		if(ui.getUiPwd()!=null) {
-//			if(ui.getUiPwd().equals(selectUi.getUiPwd())) {
-//				return selectUi;
-//			}
-//		}
-		return uim.selectUserInfoById(ui);
+	public UserInfoVO loginById(UserInfoVO ui) {
+		UserInfoVO dbUi = uim.selectUserInfoById(ui);
+		if (ui.getUiId().equals(dbUi.getUiId())) {
+			if (ui.getUiPwd().equals(dbUi.getUiPwd())) {
+				ui.setTokken(jwt.makeJWT(ui));
+				return ui;
+			}
+		}		
+		return dbUi;
 	}
+
+
 
 }
