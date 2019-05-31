@@ -29,7 +29,7 @@ public class UserInfoController {
 		log.debug("ui params:{}",ui);
 		return us.insertUserInfo(ui);
 	}
-	
+	@CrossOrigin(origins = "*")
 	@PostMapping("/join")
 	public @ResponseBody int joinUser(@RequestBody UserInfoVO ui){
 		log.debug("ui params:{}",ui);
@@ -40,8 +40,16 @@ public class UserInfoController {
 	@GetMapping("/userinfos")
 	public @ResponseBody List<UserInfoVO> selectUserInfo(){
 		List<UserInfoVO> uiList = us.selectUserInfo();
-		log.debug("ui params:{}",uiList);
+		log.info("ui params:{}",uiList);
 		return uiList;
+	}
+	
+	@CrossOrigin(origins="*")
+	@GetMapping("/userinfo")
+	public @ResponseBody UserInfoVO selectUserInfoById(UserInfoVO ui){
+		
+		log.debug("ui params:{}",ui);
+		return us.selectUserInfoById(ui);
 	}
 	
 	@CrossOrigin(origins="*")

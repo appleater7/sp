@@ -45,13 +45,5 @@ public class MakeJWT {
 		log.info("issue date=>{}",decode.getIssuedAt());
 		log.info("expire date=>{}",decode.getExpiresAt());
 	}
-	public static void main(String[] args) {
-		MakeJWT mjwt = new MakeJWT();
-		UserInfoVO tmpUi = new UserInfoVO(); 
-		tmpUi.setUiId("pai");
-		String jwt = mjwt.makeJWT(tmpUi);
-		tmpUi.setUiId("kai");
-		mjwt.checkJWT(jwt, tmpUi);
-	}
 }
 

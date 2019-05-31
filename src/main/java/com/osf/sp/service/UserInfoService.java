@@ -9,6 +9,7 @@ public interface UserInfoService {
 
 	int insertUserInfo(UserInfoVO ui);
 	List<UserInfoVO> selectUserInfo();
+	UserInfoVO selectUserInfoById(UserInfoVO ui);
 	int save(ParamVO params);
 	UserInfoVO loginById(UserInfoVO ui);
 	
