@@ -3,16 +3,18 @@ package com.osf.sp.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.osf.sp.mapper.BoardInfoMapper;
 import com.osf.sp.service.BoardInfoService;
 import com.osf.sp.vo.BoardInfoVO;
+import com.osf.sp.vo.PageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,9 +27,9 @@ public class BoardInfoServiceImpl implements BoardInfoService {
 	private final String BASE_PATH = "D:\\study\\springsp\\sp\\src\\main\\webapp\\resources\\imgs\\";
 	
 	@Override
-	public List<BoardInfoVO> selectBoardInfoList() {
-
-		return bim.selectBoardInfo();
+	public Page<BoardInfoVO> selectBoardInfoList(PageVO page) {
+		PageHelper.startPage(page.getPageNum(),page.getPageSize());
+		return bim.selectBoardInfo(page);
 	}
 
 	@Override

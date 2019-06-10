@@ -1,7 +1,5 @@
 package com.osf.sp.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -12,8 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.osf.sp.service.BoardInfoService;
 import com.osf.sp.vo.BoardInfoVO;
+import com.osf.sp.vo.PageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,8 +27,12 @@ public class BoardInfoController {
 	
 	@CrossOrigin(origins="http://localhost")
 	@GetMapping("/boardinfos")
-	public @ResponseBody List<BoardInfoVO> selectBoardInfoList(){
-		return bis.selectBoardInfoList();
+	public @ResponseBody PageInfo<BoardInfoVO> selectBoardInfoList(PageVO page){
+		log.info("========page info======== : {}",page);
+
+		Page<BoardInfoVO> boardList = bis.selectBoardInfoList(page);
+		log.info("boardList=>{}",boardList);
+		return new PageInfo<>(boardList);
 	}
 	
 	@CrossOrigin(origins="http://localhost")

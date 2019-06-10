@@ -34,7 +34,6 @@ public class Filter extends GenericFilterBean{
 		}
 		return true;
 	}
-
 //	@Override
 //	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 //			throws IOException, ServletException {
